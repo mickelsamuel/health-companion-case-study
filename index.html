@@ -4,324 +4,425 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Health Companion Super App – Case Study</title>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" />
+  <!-- AOS Animation Library CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css"/>
 </head>
-<body>
+<body class="loading">
 
-  <!-- HEADER -->
-  <header>
-    <h1>Health Companion Super App</h1>
-    <p class="tagline">A UX/UI Case Study by Mickel Samuel</p>
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen">
+    <div class="loader"></div>
+  </div>
+
+  <!-- PROGRESS BAR (Scroll progress) -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- HERO / HEADER -->
+  <header class="hero">
+    <!-- PARTICLES BACKGROUND -->
+    <div class="hero-particles" id="particles"></div>
+    <div class="container">
+      <h1 class="hero-title" data-aos="fade-down">Health Companion Super App</h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">A UX/UI Case Study by Mickel Samuel</p>
+      <nav class="sticky-nav" id="mainNav" data-aos="fade-up" data-aos-delay="400">
+        <div class="nav-wrapper">
+          <a href="#introduction">Intro</a>
+          <a href="#research">Research</a>
+          <a href="#personas">Personas</a>
+          <a href="#journeymap">Journey</a>
+          <a href="#userflow">User Flow</a>
+          <a href="#wireframes">Design</a>
+          <a href="#testing">Testing</a>
+          <a href="#reflection">Reflection</a>
+          <a href="#conclusion">Conclusion</a>
+          <a href="#additional">Screens</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- INTRODUCTION -->
-  <section class="section">
-    <h2>1. Introduction</h2>
-    <p>
-      Managing chronic health conditions often involves juggling multiple medications, 
-      doctor appointments, nutrition tracking, and mental wellness checks. The 
-      <strong>Health Companion Super App</strong> aims to simplify this process by 
-      consolidating these tasks into one seamless platform, fostering better health outcomes 
-      and improved user adherence.
-    </p>
-    <p>
-      <strong>Scope:</strong> This case study documents the research, design, and testing process 
-      behind building an MVP (Minimum Viable Product) for the Health Companion Super App. 
-      The app features medication reminders, appointment scheduling, and additional wellness 
-      tools (e.g., mental health support, accountability features).
-    </p>
-  </section>
+  <!-- READING TIME INDICATOR -->
+  <div class="reading-time" id="readingTime">
+    <span class="reading-icon">📚</span>
+    <span class="reading-text">Estimated reading time: <span id="timeToRead">0</span> minutes</span>
+  </div>
 
-  <!-- RESEARCH SECTION -->
-  <section class="section">
-    <h2>2. User Research</h2>
-    <p>
-      We conducted an <strong>online survey</strong> with 40 participants and 
-      <strong>5 in-depth interviews</strong> to understand user needs:
-    </p>
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <!-- (1) INTRODUCTION -->
+    <section id="introduction" class="section fade-in" data-aos="fade-up">
+      <h2>1. Introduction</h2>
+      <p>
+        Managing chronic health conditions often involves juggling multiple medications, 
+        doctor appointments, nutrition tracking, and mental wellness checks. The 
+        <strong>Health Companion Super App</strong> aims to simplify this process by 
+        consolidating these tasks into one seamless platform, fostering better health outcomes 
+        and improved user adherence.
+      </p>
+      <p>
+        <strong>Scope:</strong> This case study documents the research, design, and testing process 
+        behind building an MVP (Minimum Viable Product) for the Health Companion Super App. 
+        The app features medication reminders, appointment scheduling, and additional wellness 
+        tools (e.g., mental health support, accountability features).
+      </p>
+    </section>
 
-    <!-- Chart 1 -->
-    <h3>Medication Tracking Methods</h3>
-    <img src="chart1.png" alt="Medication Tracking Methods" class="image" />
-    <p class="caption">
-      70% use manual methods (like pillboxes), while 30% rely on mobile apps for medication tracking.
-    </p>
+    <!-- (2) USER RESEARCH -->
+    <section id="research" class="section fade-in" data-aos="fade-up">
+      <h2>2. User Research</h2>
+      <p>
+        We conducted an <strong>online survey</strong> with 40 participants and 
+        <strong>5 in-depth interviews</strong> to understand user needs:
+      </p>
 
-    <!-- Chart 2 -->
-    <h3>Frequency of Forgotten Doses</h3>
-    <img src="chart2.png" alt="Frequency of Forgotten Doses" class="image" />
-    <p class="caption">
-      60% frequently forget at least one dose per week. Only 15% rarely forget.
-    </p>
+      <!-- Research Charts -->
+      <div class="chart-grid">
+        <!-- Chart 1 -->
+        <div class="chart-card">
+          <img src="chart1.png" alt="Medication Tracking Methods" class="chart-image" />
+          <h3>Medication Tracking Methods</h3>
+          <p class="caption">
+            70% use manual methods (like pillboxes), while 30% rely on mobile apps for medication tracking.
+          </p>
+        </div>
 
-    <!-- Chart 3 -->
-    <h3>Most Requested Features</h3>
-    <img src="chart3.png" alt="Feature Requests" class="image" />
-    <ul>
-      <li>Appointment scheduling & easy rescheduling (65%)</li>
-      <li>Simplified medication reminders (58%)</li>
-      <li>Family sharing & accountability (35%)</li>
-      <li>Mental wellness tips (30%)</li>
-    </ul>
-    <p class="caption">Top requested features from user survey</p>
+        <!-- Chart 2 -->
+        <div class="chart-card">
+          <img src="chart2.png" alt="Frequency of Forgotten Doses" class="chart-image" />
+          <h3>Frequency of Forgotten Doses</h3>
+          <p class="caption">
+            60% frequently forget at least one dose per week. Only 15% rarely forget.
+          </p>
+        </div>
 
-    <p>
-      <strong>Key Insights:</strong> Users want a single, user-friendly app to handle both 
-      medications and appointments. Many also expressed interest in mental wellness resources 
-      (e.g., relaxation exercises, community support).
-    </p>
-  </section>
+        <!-- Chart 3 -->
+        <div class="chart-card">
+          <img src="chart3.png" alt="Feature Requests" class="chart-image" />
+          <h3>Most Requested Features</h3>
+          <ul>
+            <li>Appointment scheduling & easy rescheduling (65%)</li>
+            <li>Simplified medication reminders (58%)</li>
+            <li>Family sharing & accountability (35%)</li>
+            <li>Mental wellness tips (30%)</li>
+          </ul>
+          <p class="caption">Top requested features from user survey</p>
+        </div>
+      </div>
 
-  <!-- PERSONAS -->
-  <section class="section">
-    <h2>3. Personas</h2>
-    <p>
-      Based on our research, we developed three personas representing key user segments. 
-      These helped us keep user needs front and center throughout the design process.
-    </p>
+      <p>
+        <strong>Key Insights:</strong> Users want a single, user-friendly app to handle both 
+        medications and appointments. Many also expressed interest in mental wellness resources 
+        (e.g., relaxation exercises, community support).
+      </p>
+    </section>
 
-    <!-- Persona 1: John -->
-    <div class="persona">
-      <img src="persona-john.jpg" alt="John, 57" class="persona-img" />
-      <h3>John, 57 • Hypertension & High Cholesterol</h3>
-      <p><strong>Goals:</strong> Track blood pressure meds, reduce hospital visits, manage diet tips.</p>
-      <p><strong>Pain Points:</strong> Forgets medication doses, struggles with complicated apps, 
-      wants to share data with family doctor easily.</p>
+    <!-- (3) PERSONAS -->
+    <section id="personas" class="section fade-in" data-aos="fade-up">
+      <h2>3. Personas</h2>
+      <p>
+        Based on our research, we developed three personas representing key user segments. 
+        These helped us keep user needs front and center throughout the design process.
+      </p>
+
+      <!-- Personas Grid -->
+      <div class="persona-grid">
+        <!-- Persona 1: John -->
+        <div class="persona-card">
+          <img src="persona-john.jpg" alt="John, 57" class="persona-img" />
+          <h3>John, 57 <span style="font-weight:400;">• Hypertension & High Cholesterol</span></h3>
+          <p><strong>Goals:</strong> Track blood pressure meds, reduce hospital visits, manage diet tips.</p>
+          <p><strong>Pain Points:</strong> Forgets medication doses, struggles with complicated apps, 
+          wants to share data with family doctor easily.</p>
+        </div>
+
+        <!-- Persona 2: Alicia -->
+        <div class="persona-card">
+          <img src="persona-alicia.jpg" alt="Alicia, 33" class="persona-img" />
+          <h3>Alicia, 33 <span style="font-weight:400;">• Migraines & Work-Life Balance</span></h3>
+          <p><strong>Goals:</strong> Quickly log migraines, set medication reminders, find stress management tools.</p>
+          <p><strong>Pain Points:</strong> Juggling a busy schedule, needs fast, on-the-go solutions, 
+          doesn't want complicated sign-in flows every time.</p>
+        </div>
+
+        <!-- Persona 3: Carlos -->
+        <div class="persona-card">
+          <img src="persona-carlos.jpg" alt="Carlos, 41" class="persona-img" />
+          <h3>Carlos, 41 <span style="font-weight:400;">• Type 2 Diabetes</span></h3>
+          <p><strong>Goals:</strong> Track insulin doses and diet, schedule regular checkups, sync data with family.</p>
+          <p><strong>Pain Points:</strong> Misses insulin doses due to busy shift schedule, needs 
+          real-time push notifications, uncertain about data privacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- (4) USER JOURNEY MAP -->
+    <section id="journeymap" class="section fade-in" data-aos="fade-up">
+      <h2>4. User Journey Map</h2>
+      <p>
+        The following journey map focuses on <strong>John’s experience</strong> from the moment 
+        he realizes he needs to refill his blood pressure meds to scheduling a follow-up with his cardiologist.
+      </p>
+      <img src="user-journey.jpg" alt="User Journey Map" class="journey-image" />
+      <p class="caption">
+        Key stages: Awareness → App Access → Medication Tracking → Appointment Scheduling → Follow-up
+      </p>
+    </section>
+
+    <!-- (5) USER FLOWCHART -->
+    <section id="userflow" class="section fade-in" data-aos="fade-up">
+      <h2>5. User Flow</h2>
+      <p>
+        Below is a detailed flowchart outlining the entire user path: Onboarding, Sign-Up or Login, 
+        the Home Dashboard, and navigating to Medications, Appointments, Wellness, and Profile. 
+        It also includes sub-actions like adding medication reminders, scheduling/rescheduling appointments, 
+        and more.
+      </p>
+      <img src="flowchart.png" alt="User Flow Diagram" class="journey-image" />
+      <p class="caption">
+        Start → Onboarding → Login/Signup → Home → Medications / Appointments / Wellness / Profile
+      </p>
+    </section>
+
+    <!-- (6) WIREFRAMES & PROTOTYPE -->
+    <section id="wireframes" class="section fade-in" data-aos="fade-up">
+      <h2>6. Wireframes & High-Fidelity Screens</h2>
+      <p>
+        We began with low-fidelity wireframes to validate layout and essential features. 
+        Then, we iterated to a high-fidelity prototype in Figma.
+      </p>
+      
+      <!-- Low-fidelity Wireframes -->
+      <h3 style="margin-top:2rem;">Low-Fidelity Wireframes</h3>
+      <div class="wireframe-grid">
+        <img src="wireframe-login.png" alt="Login Wireframe" />
+        <img src="wireframe-home.png" alt="Home Wireframe" />
+        <img src="wireframe-medication.png" alt="Medication Wireframe" />
+        <img src="wireframe-appointment.png" alt="Appointment Wireframe" />
+      </div>
+      <p class="caption">Tested for basic flow and navigation.</p>
+
+      <!-- High-fidelity Mockups -->
+      <h3 style="margin-top:2rem;">High-Fidelity Mockups</h3>
+      <div class="wireframe-grid">
+        <img src="final-login.png" alt="Login Mockup" />
+        <img src="final-home.png" alt="Home Mockup" />
+        <img src="final-meds.png" alt="Medication Mockup" />
+        <img src="final-appt.png" alt="Appointment Mockup" />
+      </div>
+      <p class="caption">Brand styling, icons, and consistent color palette.</p>
+
+      <p>
+        <a href="https://www.figma.com/proto/healthcompanion-superapp" target="_blank" class="prototype-button">
+          View Clickable Prototype
+        </a>
+      </p>
+    </section>
+
+    <!-- (7) USABILITY TESTING -->
+    <section id="testing" class="section fade-in" data-aos="fade-up">
+      <h2>7. Usability Testing</h2>
+      <p>
+        We conducted usability testing with 6 participants who matched our personas’ age range 
+        and health conditions. Each participant was asked to:
+      </p>
+      <ul>
+        <li>Create an account or log in (if they had existing credentials)</li>
+        <li>Set a new medication reminder for the next day</li>
+        <li>Schedule a doctor’s appointment for an available time slot</li>
+        <li>Access a mental wellness “relaxation exercise”</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <table class="testing-table">
+        <thead>
+          <tr>
+            <th>Feature Tested</th>
+            <th>Success Rate</th>
+            <th>Observations</th>
+            <th>Proposed Changes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Account Creation</td>
+            <td>5/6 (83%)</td>
+            <td>One user missed the “confirm password” field</td>
+            <td>Add real-time validation, highlight missing fields</td>
+          </tr>
+          <tr>
+            <td>Medication Reminder</td>
+            <td>6/6 (100%)</td>
+            <td>All found the “Add Medication” button easily</td>
+            <td>Consider adding a quick tutorial for first-time users</td>
+          </tr>
+          <tr>
+            <td>Appointment Scheduling</td>
+            <td>4/6 (66%)</td>
+            <td>Two users confused about the “Reschedule” vs “New Appointment” flow</td>
+            <td>Combine “Schedule” & “Reschedule” under one “Manage Appointments” screen</td>
+          </tr>
+          <tr>
+            <td>Mental Wellness Exercise</td>
+            <td>6/6 (100%)</td>
+            <td>Users appreciated quick access & short instructions</td>
+            <td>Push more variety of exercises in future updates</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        After analyzing results, we simplified the appointment scheduler (combining “New” and 
+        “Reschedule” into a single “Manage” interface). We also added real-time form validation 
+        for the sign-up flow.
+      </p>
+    </section>
+
+    <!-- (8) REFLECTION & FUTURE STEPS -->
+    <section id="reflection" class="section fade-in" data-aos="fade-up">
+      <h2>8. Reflection & Future Steps</h2>
+      <p>
+        <strong>Challenges:</strong> Reaching older adults for interviews was difficult, so we 
+        partnered with local clinics to gather more representative data. Additionally, balancing 
+        multiple features (medications, appointments, mental wellness) without overwhelming the 
+        user required careful iterative testing.
+      </p>
+      <p>
+        <strong>Successes:</strong> Our iterative approach and usability testing helped us 
+        prioritize the most-used features. The final prototype tested well, with a 90% overall 
+        task completion rate and high satisfaction scores.
+      </p>
+      <p>
+        <strong>Next Steps:</strong> 
+      </p>
+      <ul>
+        <li>Implement family-sharing and accountability features for group management</li>
+        <li>Improve data visualization for daily/weekly medication adherence</li>
+        <li>Enhance mental wellness section with more resources and professional support channels</li>
+        <li>Explore EHR (Electronic Health Records) integration for seamless patient-doctor communication</li>
+      </ul>
+    </section>
+
+    <!-- (9) CONCLUSION -->
+    <section id="conclusion" class="section fade-in" data-aos="fade-up">
+      <h2>9. Conclusion</h2>
+      <p>
+        The Health Companion Super App demonstrates how a user-centered design process can 
+        simplify complex healthcare needs. By focusing on straightforward medication tracking, 
+        flexible appointment scheduling, and a supportive mental wellness toolkit, we aim to 
+        empower users to take control of their health every day.
+      </p>
+      <p>
+        <em>“Design is not just what it looks like and feels like. Design is how it works.” 
+        – Steve Jobs</em>
+      </p>
+    </section>
+
+    <!-- (10) ADDITIONAL SCREENS -->
+    <section id="additional" class="section fade-in" data-aos="fade-up">
+      <h2>10. Additional Screens</h2>
+      <p>
+        Beyond the core wireframes, our final MVP included a total of eight pages. Below are final 
+        mockups for each screen, showcasing the simplified navigation and consistent design language:
+      </p>
+
+      <div class="final-grid">
+        <!-- Onboarding -->
+        <div class="final-card">
+          <h3>Onboarding</h3>
+          <img src="final-onboarding.png" alt="Onboarding Screen" />
+        </div>
+
+        <!-- Login -->
+        <div class="final-card">
+          <h3>Login</h3>
+          <img src="final-login.png" alt="Login Screen" />
+        </div>
+
+        <!-- Sign Up -->
+        <div class="final-card">
+          <h3>Sign-Up</h3>
+          <img src="final-signup.png" alt="Sign-Up Screen" />
+        </div>
+
+        <!-- Home -->
+        <div class="final-card">
+          <h3>Home</h3>
+          <img src="final-home.png" alt="Home Screen" />
+        </div>
+
+        <!-- Medication -->
+        <div class="final-card">
+          <h3>Medication</h3>
+          <img src="final-medication.png" alt="Medication Screen" />
+        </div>
+
+        <!-- Appointment -->
+        <div class="final-card">
+          <h3>Appointment</h3>
+          <img src="final-appointment.png" alt="Appointment Screen" />
+        </div>
+
+        <!-- Wellness -->
+        <div class="final-card">
+          <h3>Wellness</h3>
+          <img src="final-wellness.png" alt="Wellness Screen" />
+        </div>
+
+        <!-- Profile -->
+        <div class="final-card">
+          <h3>Profile</h3>
+          <img src="final-profile.png" alt="Profile Screen" />
+        </div>
+      </div>
+
+      <p class="caption">
+        Each screen was designed with intuitive navigation and clear CTAs (Calls to Action) to reduce cognitive load.
+      </p>
+    </section>
+  </main>
+
+  <!-- FLOATING ACTION MENU -->
+  <div class="action-menu">
+    <!-- Dark Mode Toggle -->
+    <button id="themeToggle" class="action-btn theme-btn" title="Toggle Theme">
+      <span class="action-icon">🌓</span>
+    </button>
+    <!-- Back to Top -->
+    <button id="toTop" class="action-btn" title="Back to Top">
+      <span class="action-icon">↑</span>
+    </button>
+    <!-- Share -->
+    <button id="share" class="action-btn" title="Share">
+      <span class="action-icon">📤</span>
+    </button>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div class="modal" id="shareModal">
+    <div class="modal-content">
+      <h3>Share This Case Study</h3>
+      <div class="share-buttons">
+        <button class="share-btn twitter">Twitter</button>
+        <button class="share-btn linkedin">LinkedIn</button>
+        <button class="share-btn facebook">Facebook</button>
+        <button class="share-btn copy">Copy Link</button>
+      </div>
+      <button class="modal-close">×</button>
     </div>
+  </div>
 
-    <!-- Persona 2: Alicia -->
-    <div class="persona">
-      <img src="persona-alicia.jpg" alt="Alicia, 33" class="persona-img" />
-      <h3>Alicia, 33 • Migraines & Work-Life Balance</h3>
-      <p><strong>Goals:</strong> Quickly log migraines, set medication reminders, find stress management tools.</p>
-      <p><strong>Pain Points:</strong> Juggling a busy schedule, needs fast, on-the-go solutions, 
-      doesn't want complicated sign-in flows every time.</p>
-    </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Mickel Samuel | UX Case Study</p>
+  </footer>
 
-    <!-- Persona 3: Carlos -->
-    <div class="persona">
-      <img src="persona-carlos.jpg" alt="Carlos, 41" class="persona-img" />
-      <h3>Carlos, 41 • Type 2 Diabetes</h3>
-      <p><strong>Goals:</strong> Track insulin doses and diet, schedule regular checkups, sync data with family.</p>
-      <p><strong>Pain Points:</strong> Misses insulin doses due to busy shift schedule, needs 
-      real-time push notifications, uncertain about data privacy.</p>
-    </div>
-  </section>
-
-  <!-- USER JOURNEY MAP -->
-  <section class="section">
-    <h2>4. User Journey Map</h2>
-    <p>
-      The following journey map focuses on <strong>John’s experience</strong> from the moment 
-      he realizes he needs to refill his blood pressure meds to scheduling a follow-up with his cardiologist.
-    </p>
-    <img src="user-journey.jpg" alt="User Journey Map" class="image" />
-    <p class="caption">
-      Key stages: Awareness → App Access → Medication Tracking → Appointment Scheduling → Follow-up
-    </p>
-  </section>
-
-  <!-- USER FLOWCHART -->
-  <section class="section">
-    <h2>5. User Flow</h2>
-    <p>
-      Below is a simplified flowchart outlining key paths: Onboarding/Sign-Up, Logging In, 
-      accessing the Home screen, navigating to Medications, Appointments, Profile, 
-      and additional wellness features.
-    </p>
-    <img src="flowchart.png" alt="User Flow Diagram" class="image" />
-    <p class="caption">
-      Start → Onboarding → Login/Signup → Home → Medications / Appointments / Profile / Wellness
-    </p>
-  </section>
-
-  <!-- WIREFRAMES & PROTOTYPE -->
-  <section class="section">
-    <h2>6. Wireframes & High-Fidelity Screens</h2>
-    <p>
-      We began with low-fidelity wireframes to validate layout and essential features. 
-      Then, we iterated to a high-fidelity prototype in Figma.
-    </p>
-    
-    <!-- Low-fidelity Wireframes -->
-    <div class="wireframe-grid">
-      <img src="wireframe-login.png" alt="Login Wireframe" class="image" />
-      <img src="wireframe-home.png" alt="Home Wireframe" class="image" />
-      <img src="wireframe-medication.png" alt="Medication Wireframe" class="image" />
-      <img src="wireframe-appointment.png" alt="Appointment Wireframe" class="image" />
-    </div>
-    <p class="caption">High-fidelity mockups with brand styling, icons, and consistent color palette.</p>
-    
-    <!-- High-fidelity Mockups -->
-    <div class="wireframe-grid">
-      <img src="final-login.png" alt="Login Mockup" class="image" />
-      <img src="final-home.png" alt="Home Mockup" class="image" />
-      <img src="final-meds.png" alt="Medication Mockup" class="image" />
-      <img src="final-appt.png" alt="Appointment Mockup" class="image" />
-    </div>
-    <p class="caption">Low-fidelity wireframes tested for basic flow and navigation.</p>
-
-    <p>
-      <a href="https://www.figma.com/proto/healthcompanion-superapp" target="_blank" class="button">
-        View Clickable Prototype
-      </a>
-    </p>
-  </section>
-
-  <!-- USABILITY TESTING -->
-  <section class="section">
-    <h2>7. Usability Testing</h2>
-    <p>
-      We conducted usability testing with 6 participants who matched our personas’ age range 
-      and health conditions. Each participant was asked to:
-    </p>
-    <ul>
-      <li>Create an account or log in (if they had existing credentials)</li>
-      <li>Set a new medication reminder for the next day</li>
-      <li>Schedule a doctor’s appointment for an available time slot</li>
-      <li>Access a mental wellness “relaxation exercise”</li>
-    </ul>
-
-    <h3>Key Findings</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Feature Tested</th>
-          <th>Success Rate</th>
-          <th>Observations</th>
-          <th>Proposed Changes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Account Creation</td>
-          <td>5/6 (83%)</td>
-          <td>One user missed the “confirm password” field</td>
-          <td>Add real-time validation, highlight missing fields</td>
-        </tr>
-        <tr>
-          <td>Medication Reminder</td>
-          <td>6/6 (100%)</td>
-          <td>All found the “Add Medication” button easily</td>
-          <td>Consider adding a quick tutorial for first-time users</td>
-        </tr>
-        <tr>
-          <td>Appointment Scheduling</td>
-          <td>4/6 (66%)</td>
-          <td>Two users confused about the “Reschedule” vs “New Appointment” flow</td>
-          <td>Combine “Schedule” & “Reschedule” under one “Manage Appointments” screen</td>
-        </tr>
-        <tr>
-          <td>Mental Wellness Exercise</td>
-          <td>6/6 (100%)</td>
-          <td>Users appreciated quick access & short instructions</td>
-          <td>Push more variety of exercises in future updates</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      After analyzing results, we simplified the appointment scheduler (combining “New” and 
-      “Reschedule” into a single “Manage” interface). We also added real-time form validation 
-      for the sign-up flow.
-    </p>
-  </section>
-
-  <!-- REFLECTION & FUTURE STEPS -->
-  <section class="section">
-    <h2>8. Reflection & Future Steps</h2>
-    <p>
-      <strong>Challenges:</strong> Reaching older adults for interviews was difficult, so we 
-      partnered with local clinics to gather more representative data. Additionally, balancing 
-      multiple features (medications, appointments, mental wellness) without overwhelming the 
-      user required careful iterative testing.
-    </p>
-    <p>
-      <strong>Successes:</strong> Our iterative approach and usability testing helped us 
-      prioritize the most-used features. The final prototype tested well, with a 90% overall 
-      task completion rate and high satisfaction scores.
-    </p>
-    <p>
-      <strong>Next Steps:</strong> 
-    </p>
-    <ul>
-      <li>Implement family-sharing and accountability features for group management</li>
-      <li>Improve data visualization for daily/weekly medication adherence</li>
-      <li>Enhance mental wellness section with more resources and professional support channels</li>
-      <li>Explore EHR (Electronic Health Records) integration for seamless patient-doctor communication</li>
-    </ul>
-  </section>
-
-  <!-- CONCLUSION -->
-  <section class="section">
-    <h2>9. Conclusion</h2>
-    <p>
-      The Health Companion Super App demonstrates how a user-centered design process can 
-      simplify complex healthcare needs. By focusing on straightforward medication tracking, 
-      flexible appointment scheduling, and a supportive mental wellness toolkit, we aim to 
-      empower users to take control of their health every day.
-    </p>
-    <p>
-      <em>“Design is not just what it looks like and feels like. Design is how it works.” 
-      – Steve Jobs</em>
-    </p>
-  </section>
-
-  <!-- NEW SECTION: Additional Screens -->
-  <section class="section">
-    <h2>10. Additional Screens</h2>
-    <p>
-      Beyond the core wireframes, our final MVP included a total of eight pages. Below are final 
-      mockups for each screen, showcasing the simplified navigation and consistent design language:
-    </p>
-
-    <div class="wireframe-grid">
-      <!-- Onboarding -->
-      <div>
-        <h3>Onboarding</h3>
-        <img src="final-onboarding.png" alt="Onboarding Screen" class="image" />
-      </div>
-      <!-- Login -->
-      <div>
-        <h3>Login</h3>
-        <img src="final-login.png" alt="Login Screen" class="image" />
-      </div>
-      <!-- Sign Up -->
-      <div>
-        <h3>Sign-Up</h3>
-        <img src="final-signup.png" alt="Sign-Up Screen" class="image" />
-      </div>
-      <!-- Home -->
-      <div>
-        <h3>Home</h3>
-        <img src="final-home.png" alt="Home Screen" class="image" />
-      </div>
-      <!-- Medication -->
-      <div>
-        <h3>Medication</h3>
-        <img src="final-medication.png" alt="Medication Screen" class="image" />
-      </div>
-      <!-- Appointment -->
-      <div>
-        <h3>Appointment</h3>
-        <img src="final-appointment.png" alt="Appointment Screen" class="image" />
-      </div>
-      <!-- Wellness -->
-      <div>
-        <h3>Wellness</h3>
-        <img src="final-wellness.png" alt="Wellness Screen" class="image" />
-      </div>
-      <!-- Profile -->
-      <div>
-        <h3>Profile</h3>
-        <img src="final-profile.png" alt="Profile Screen" class="image" />
-      </div>
-    </div>
-
-    <p class="caption">
-      Each screen was designed with intuitive navigation and clear CTAs (Call to Actions) to reduce cognitive load.
-    </p>
-  </section>
-
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- MAIN JS -->
+  <script src="script.js"></script>
 </body>
 </html>
