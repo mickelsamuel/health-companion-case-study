@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize AOS
   AOS.init({
     duration: 800,
     once: true,
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('content-loaded');
   });
 
-  // Scroll Progress Bar
   const progressBar = document.getElementById('progressBar');
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     progressBar.style.width = scrolled + '%';
   });
   
-  // Particles in Hero
   function createParticle() {
     const particle = document.createElement('div');
     particle.className = 'particle';
@@ -36,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(createParticle, 200);
 
-  // Reading Time Calculator
   const calculateReadingTime = () => {
     const mainContent = document.querySelector('main');
     const readingTimeEl = document.getElementById('timeToRead');
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
       .trim();
     
     const wordCount = text.split(' ').filter(word => word.length > 0).length;
-    // Approx 200 WPM, minimum 3 minutes
     const time = Math.max(Math.ceil(wordCount / 200), 3);
     
     readingTimeEl.textContent = time;
@@ -58,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
   calculateReadingTime();
   window.addEventListener('load', calculateReadingTime);
 
-  // Reveal sections on scroll
   const sections = document.querySelectorAll('.section');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -69,13 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.1 });
   sections.forEach(section => io.observe(section));
 
-  // Back to Top Button
   const backToTopBtn = document.getElementById('toTop');
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Smooth Scroll for Sticky Nav
   document.querySelectorAll('.sticky-nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -88,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Dark Mode Toggle
   const themeToggleBtn = document.getElementById('themeToggle');
   if (localStorage.getItem('hcTheme') === 'dark') {
     document.body.classList.add('dark-mode');
@@ -102,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggleBtn.querySelector('.action-icon').textContent = isDark ? '🌞' : '🌓';
   });
 
-  // Share Modal & Social Links
   const shareBtn = document.getElementById('share');
   const shareModal = document.getElementById('shareModal');
   const modalClose = document.querySelector('.modal-close');
@@ -177,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Zoom Overlay
   const zoomOverlay = document.getElementById('zoomOverlay');
   const zoomImage = document.getElementById('zoomImage');
   const zoomClose = document.getElementById('zoomClose');
@@ -200,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Highlight active nav link on scroll
   const navLinks = document.querySelectorAll('.sticky-nav a');
   const sectionMap = {};
   sections.forEach(section => {
@@ -210,9 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const highlightObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Remove .active from all links
         navLinks.forEach(link => link.classList.remove('active'));
-        // Add .active to the matching link
         const link = sectionMap[entry.target.id];
         if (link) link.classList.add('active');
       }
@@ -222,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
   sections.forEach(section => highlightObserver.observe(section));
 
   try {
-    // Any additional script if needed
   } catch (error) {
     console.error('Initialization error:', error);
   }
