@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // AOS Initialization
     AOS.init({
       duration: 800,
       once: true,
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
       progressBar.style.width = scrolled + '%';
     });
     
-    // Particle Effect in Hero
     function createParticle() {
       const particle = document.createElement('div');
       particle.className = 'particle';
@@ -36,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     setInterval(createParticle, 200);
     
-    // Updated Reading Time Calculator
+    //Reading Time Calculator
     const calculateReadingTime = () => {
       const mainContent = document.querySelector('main');
       const readingTimeEl = document.getElementById('timeToRead');
@@ -57,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     calculateReadingTime();
     window.addEventListener('load', calculateReadingTime);
     
-    // Intersection Observer (Fade-in Sections)
     const sections = document.querySelectorAll('.section');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -68,13 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1 });
     sections.forEach(section => io.observe(section));
     
-    // Back to Top Button Logic
+    // Back to Top Button
     const backToTopBtn = document.getElementById('toTop');
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // Smooth Scroll Navigation (with offset)
     document.querySelectorAll('.sticky-nav a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -176,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });      
     
-    // Updated Image Zoom Functionality
     const zoomOverlay = document.getElementById('zoomOverlay');
     const zoomImage = document.getElementById('zoomImage');
     const zoomClose = document.getElementById('zoomClose');
@@ -199,9 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Debug Error Logging
     try {
-      // Additional initialization code can go here.
     } catch (error) {
       console.error('Initialization error:', error);
     }

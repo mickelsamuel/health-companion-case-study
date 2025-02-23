@@ -1,15 +1,10 @@
-/******************************************
-  VARIABLES & FONTS
-******************************************/
 :root {
-  /* Light mode colors */
   --primary: #2A5C82;
   --secondary: #5EA8A3;
   --accent: #FF7E67;
   --light: #F8F9FA;
   --dark: #2C3E50;
 
-  /* Dark mode variants */
   --primary-dark: #64B5F6;
   --secondary-dark: #81C784;
   --accent-dark: #FF9E80;
@@ -17,14 +12,12 @@
   --text-dark: #E0E0E0;
   --card-dark: #1F1F1F;
 
-  /* Shared Variables */
   --transition: all 0.3s ease;
   --container-width: 1200px;
   --shadow-light: 0 4px 20px rgba(0,0,0,0.1);
   --shadow-dark: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -45,18 +38,12 @@ body.dark-mode {
   color: var(--text-dark);
 }
 
-/******************************************
-  OVERRIDE AOS Defaults to ensure visibility
-******************************************/
 [data-aos] {
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
 }
 
-/******************************************
-  PROGRESS BAR (top)
-******************************************/
 .progress-bar {
   position: fixed;
   top: 0;
@@ -72,9 +59,6 @@ body.dark-mode .progress-bar {
   background: var(--accent-dark);
 }
 
-/******************************************
-  HERO + PARTICLES
-******************************************/
 .hero {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
@@ -116,9 +100,6 @@ body.dark-mode .hero {
   visibility: visible;
 }
 
-/******************************************
-  STICKY NAV
-******************************************/
 .sticky-nav {
   position: sticky;
   top: 20px;
@@ -170,9 +151,6 @@ body.dark-mode .sticky-nav a:hover {
   color: #fff;
 }
 
-/******************************************
-  READING TIME
-******************************************/
 .reading-time {
   position: fixed;
   left: 20px;
@@ -201,9 +179,6 @@ body.dark-mode .reading-time {
   font-weight: 500;
 }
 
-/******************************************
-  MAIN SECTIONS
-******************************************/
 .section {
   margin: 4rem 0;
   padding: 3rem;
@@ -218,9 +193,6 @@ body.dark-mode .section {
   box-shadow: var(--shadow-dark);
 }
 
-/******************************************
-  HEADINGS
-******************************************/
 .section h2 {
   margin-top: 0;
   color: var(--primary);
@@ -243,9 +215,6 @@ body.dark-mode .section h3 {
   color: var(--text-dark);
 }
 
-/******************************************
-  CHARTS
-******************************************/
 .chart-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -278,9 +247,6 @@ body.dark-mode .chart-card {
   margin-bottom: 1rem;
 }
 
-/******************************************
-  PERSONAS
-******************************************/
 .persona-img {
   width: 160px;
   height: 160px;
@@ -325,9 +291,6 @@ body.dark-mode .persona-card {
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
 }
 
-/******************************************
-  JOURNEY IMAGE
-******************************************/
 .journey-image {
   width: 100%;
   max-width: 800px;
@@ -341,9 +304,6 @@ body.dark-mode .journey-image {
   border: 2px solid var(--secondary-dark);
 }
 
-/******************************************
-  WIREFRAMES
-******************************************/
 .wireframe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -357,9 +317,6 @@ body.dark-mode .journey-image {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/******************************************
-  USABILITY TABLE
-******************************************/
 .testing-table {
   width: 100%;
   border-collapse: collapse;
@@ -395,9 +352,6 @@ body.dark-mode .testing-table thead {
   background: var(--accent-dark);
 }
 
-/******************************************
-  ADDITIONAL SCREENS
-******************************************/
 .final-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -429,9 +383,6 @@ body.dark-mode .final-card {
   border-radius: 8px;
 }
 
-/******************************************
-  PROTOTYPE BUTTON
-******************************************/
 .prototype-button {
   display: inline-block;
   padding: 1rem 2rem;
@@ -450,9 +401,6 @@ body.dark-mode .final-card {
   box-shadow: 0 4px 14px rgba(255,126,103,0.3);
 }
 
-/******************************************
-  FLOATING ACTION MENU & BUTTONS
-******************************************/
 .action-menu {
   position: fixed;
   right: 20px;
@@ -492,9 +440,6 @@ body.dark-mode .action-btn {
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/******************************************
-  SHARE MODAL
-******************************************/
 .modal {
   display: none;
   position: fixed;
@@ -546,7 +491,6 @@ body.dark-mode .modal-content {
   height: 20px;
 }
 
-/* Custom colors for each share button */
 .share-btn.twitter { background: #1DA1F2; }
 .share-btn.linkedin { background: #0077B5; }
 .share-btn.facebook { background: #4267B2; }
@@ -571,9 +515,6 @@ body.dark-mode .modal-content {
   filter: brightness(1.1);
 }
 
-/******************************************
-  ZOOM OVERLAY
-******************************************/
 .zoom-overlay {
   position: fixed;
   display: none;
@@ -583,12 +524,11 @@ body.dark-mode .modal-content {
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: 2000;
-  overflow: auto;            /* Allow scrolling if content is larger than viewport */
+  overflow: auto;          
   padding: 1rem;
   cursor: zoom-out;
 }
 
-/* ZOOM CONTENT */
 .zoom-content {
   position: relative;
   max-width: 90vw;
@@ -596,7 +536,6 @@ body.dark-mode .modal-content {
   margin: auto;
 }
 
-/* Zoomed image defaults to fitting within the modal */
 .zoom-content img {
   width: 100%;
   height: auto;
@@ -606,7 +545,6 @@ body.dark-mode .modal-content {
   transition: transform 0.3s ease;
 }
 
-/* When the user double-clicks, toggle full size */
 .zoom-content img.zoomed {
   width: auto;
   max-width: none;
@@ -634,9 +572,6 @@ body.dark-mode .modal-content {
   border-color: #fff;
 }
 
-/******************************************
-  MEDIA QUERIES
-******************************************/
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
