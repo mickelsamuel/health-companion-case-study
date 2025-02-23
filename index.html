@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Health Companion Super App - Case Study</title>
+  <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" />
+  <!-- AOS (Animate on Scroll) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Main Styles -->
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -44,6 +47,7 @@
 
   <!-- MAIN CONTENT -->
   <main class="container" style="opacity: 1; visibility: visible;">
+
     <!-- (1) INTRODUCTION -->
     <section id="introduction" class="section" data-aos="fade-up">
       <h2>1. Introduction</h2>
@@ -104,19 +108,15 @@
       </p>
       <ol>
         <li><strong>App Overload:</strong> Users dislike juggling multiple apps for different health 
-        tasks. A single integrated solution that offers medications, appointments, and wellness 
-        tracking is preferred.</li>
-        <li><strong>Medication Adherence:</strong> Over 60% of participants admitted missing at least 
-        one dose per week, highlighting a strong need for intuitive reminders and tracking 
-        capabilities.</li>
-        <li><strong>Mental Health Integration:</strong> A notable portion of users (especially those 
-        with conditions like migraines or diabetes) expressed interest in mental wellness resources 
-        within the same app, supporting stress management and emotional well-being.</li>
-        <li><strong>Communication with Healthcare Professionals:</strong> Slow or unclear 
-        communication with doctors was a frequent complaint, especially around scheduling 
-        appointments or clarifying medication instructions.</li>
-        <li><strong>Accessibility & Usability:</strong> Many older adults found high-complexity 
-        apps difficult to navigate. A simple, clear UI is essential for user adoption and retention.</li>
+        tasks. A single integrated solution is preferred.</li>
+        <li><strong>Medication Adherence:</strong> Over <span class="highlight">60%</span> of participants admitted missing 
+        at least one dose per week, highlighting a strong need for intuitive reminders.</li>
+        <li><strong>Mental Health Integration:</strong> A notable portion of users expressed interest in 
+        mental wellness resources within the same app, supporting stress management.</li>
+        <li><strong>Communication with Healthcare Professionals:</strong> Slow or unclear communication 
+        with doctors was a frequent complaint.</li>
+        <li><strong>Accessibility & Usability:</strong> Many older adults found high-complexity apps 
+        difficult to navigate. A simple, clear UI is essential.</li>
       </ol>
 
       <!-- Research Charts -->
@@ -126,7 +126,8 @@
           <img src="chart1.png" alt="Medication Tracking Methods" class="chart-image" />
           <h3>Medication Tracking Methods</h3>
           <p class="caption">
-            70% use manual methods (like pillboxes), while 30% rely on mobile apps.
+            <span class="highlight">70%</span> use manual methods (like pillboxes), while 
+            <span class="highlight">30%</span> rely on mobile apps.
           </p>
         </div>
 
@@ -135,7 +136,8 @@
           <img src="chart2.png" alt="Frequency of Forgotten Doses" class="chart-image" />
           <h3>Frequency of Forgotten Doses</h3>
           <p class="caption">
-            60% frequently forget at least one dose per week. Only 15% rarely forget.
+            <span class="highlight">60%</span> frequently forget at least one dose per week. Only 
+            <span class="highlight">15%</span> rarely forget.
           </p>
         </div>
 
@@ -710,9 +712,15 @@
   <!-- FOOTER -->
   <footer class="footer">
     <p>© 2025 Mickel Samuel | UX Case Study</p>
+    <div class="footer-cta">
+      <p>Thanks for reading! Interested in more projects?</p>
+      <a href="https://mickelsamuel.github.io/Portfolio/" target="_blank" class="cta-button">View My Portfolio</a>
+    </div>
   </footer>
 
+  <!-- AOS (Animate on Scroll) Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Main JS -->
   <script src="script.js"></script>
 </body>
 </html>
