@@ -590,6 +590,10 @@ body.dark-mode .footer {
   box-shadow: 0 4px 14px rgba(255,126,103,0.3);
 }
 
+body.dark-mode .section:not(:last-of-type)::after {
+  display: none; /* or visibility: hidden; */
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
